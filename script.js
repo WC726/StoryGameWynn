@@ -10,53 +10,41 @@
 // --------------------------------------------------
 
 // First, we create a variable for the current scene being displayed
-let currentScene = "backyard";
+let currentScene = "beginning";
 
 // Then, we create an object that stores the data for each scene,
 const scenes = {
   // See "backyard" for the first example
-  backyard: {
-    title: "Location: Backyard",
+  beginning: {
+    title: "The Beginning",
     character: "Interviewee:Grandma",
-    text: "Text: well what I remember happening is that Darcie went inside to play with her pretend kitchen, I heard her neighbor mention he was really hungry, and the dog ran around really quickly",
+    text: "You awaken in the dusty, decaying hallway of what was clearly a once-expensive home. As you open your eyes and look up into the moldering ceiling, you are instantly filled with a familiar frustration, annoyance, and regret. 'Fuuuuck, not again.' You roll to your feet and glare around you at the peeling walls of the room you . . . recognize? You blink twice as a wave of-              .                ..                     ...                -Blinking rapidly, you look around at the decaying hallway of a once-expensive home, clearly left long to ruin. How did you get here? Where is here? What is this place? Who brought you here? Why? The only thing you know, with a chilling certainty, is that you are trapped, and you need to find a way to escape.",
     // you can choose how many choices to include
     // each choice can have text, an action, and/or nextScene
     choices: [
       {
-        text: "Chase after the dog (-10 HP)",
-        action: function () {
-          updateHealth(-10);
-        },
-        nextScene: "entrance"
+        text: "Open door 1",
+         nextScene: "kitchen"
       },
       {
-        text: "Ask about the neighbor",
-        nextScene: "hallway"
+        text: "Open door 2",
+        nextScene: "dining room"
       },
       {
-          text: "Pick up the brass key",
-          action: function () {
-            pickUpItem("brass key");
-          },
-          nextScene: "hallway"
+          text: "Open door 3",
+          action: unlockLibrary
+      },
+      {
+        text: "Open door 4",
+        nextScene: "bedroom"
       }
     ]
   },
 
-  entrance: {
-    title: "Location: Entrance",
+  kitchen: {
+    title: "Location: Kitchen",
     character: "Interviewee:Neighbor",
-    text: "well what I remember...",
-    choices: [
-      {
-        text: "Ask about the dog",
-        nextScene: "backyard"
-      },
-         {
-        text: "Ask about the neighbor",
-        nextScene: "hallway"
-      }
-    ]
+    kitchenUpdate
   },
 
   hallway: {
@@ -165,19 +153,19 @@ updateScene(currentScene);
 // --------------------------------------------------
 
 // Create a variable for health
-let health = 100;
+let sanity = 100;
 
 // Display current health
-const healthDisplay = document.getElementById("health-display");
+const sanityDisplay = document.getElementById("sanity-display");
 
 // Create a function to update health 
-function updateHealth(amount) {
-  health += amount;
-  healthDisplay.textContent = health;
+function updateSanity(amount) {
+  sanity -= amount;
+  sanityDisplay.textContent = sanity;
 }
 
 // This refreshes the health display
-updateHealth(0);
+updateSanity(0);
 
 // --------------------------------------------------
 // INVENTORY
@@ -201,6 +189,20 @@ function pickUpItem(itemName) {
   inventoryDisplay.textContent = inventory.join(", ");
 }
 
+let missions = []
+
+const missionList = document.querySelector("#mission-display");
+
+function addMission(mission) {
+  mission.push(mission);
+  missionList.textContent = missions.join(", ");
+}
+
+function completeMission(mission){
+  missions.splice(missions.indexOf(mission), 0 );
+  missionList.textContent = missions.join(", ");
+}
+
 // --------------------------------------------------
 // CONDITIONAL 
 // Depending on how you want to implement the conditional logic, you may 
@@ -208,11 +210,72 @@ function pickUpItem(itemName) {
 // --------------------------------------------------
 
 // Create a function that checks if the inventory contains one item and if so shows the win condition scene.
-function unlockDoor() {
-  if (inventory.includes("brass key")) {
-    updateScene("solution");
+function unlockLibrary() {
+  if (inventory.includes("library key")) {
+    updateScene("library");
+    completeMission("Find library key")
   } else {
-    messageDisplay.textContent = "The door is locked.";
+    messageDisplay.textContent = "The old wooden door appears to be locked. The lock is large and appears to be made of iron.";
+    addMission("Find library key")
   }
 }
 
+function unlockStudy() {
+  if (inventory.includes("study key")) {
+    updateScene("study");
+    completeMission("Find study key")
+  } else {
+    messageDisplay.textContent = "This door appears to be locked. The lock is small and appears to be made of brass.";
+    addMission("Find study key")
+  }
+}
+
+function unlockCabinet() {
+  if (inventory.includes("cabinet key")) {
+    inventory.pickUpItem("translation papers");
+    messageDisplay.textContent = "Opening the cabinet and pulling out the papers, you see that the papers are covered with symbols matching those in the mysterious book, as well as many scribbled notes."
+    completeMission("Find cabinet key")
+  } else {
+    messageDisplay.textContent = "The cabinet is locked shut. The lock is small and appears to be made of a shiny metal.";
+    addMission("Find cabinet key")
+  }
+}
+
+function kitchenUpdate(){
+  if (sanity >= 40){
+    text: "well what I remember...",
+    choices: [
+      {
+        text: "Open door 1",
+        nextScene: "basement"
+      },
+      {
+        text: "Return to hallway",
+        nextScene: "hallway"
+      },
+      {
+        text: "Investigate the papers",
+      },
+      {
+        text: "Investigate the knife"
+        action: pickUpItem("knife")
+        messageDisplay.textContent = 
+      }
+    ]
+  } else {
+    text: "well what I remember...",
+    choices: [
+      {
+        text: "Open door 1",
+        nextScene: "backyard"
+      },
+      {
+        text: "Return to hallway",
+        nextScene: "hallway"
+      },
+      {
+        text: "Investigate the papers",
+      }
+    ]
+  }
+}

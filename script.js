@@ -41,11 +41,53 @@ const scenes = {
     ]
   },
 
-  kitchen: {
+  kitchen1: {
     title: "Location: Kitchen",
     character: "Interviewee:Neighbor",
-    kitchenUpdate
+    text: "The kitchen is as ancient as the hallway, but despite its age, it seems free of mold or rot. Opening cabinets and drawers, it's clear that the thick sheets of dust coating every have never been disturbed before now. It's oddly tidy. Every pot, dish, and utensil has been carefully packed away and organzied, and the counters are completely bare except for a small pile of papers next to the empty sink. The fridge is on, and lights up when you open the door, but only the faintest puff of cooler air blows across your skin. Even on close inspection, it seems completely free of mold, stains, or husks of forgotten food. Across from the hallway is another wooden door, left ajar, with a staircase leading downward visible behind it.",
+    choices: [
+      {
+        text: "Go through door",
+        nextScene: "basement"
+      },
+      {
+        text: "Return to hallway",
+        nextScene: "hallway"
+      },
+      {
+        text: "Investigate the papers",
+        nextScene: "kitchenPapers1"
+      }
+    ]
   },
+
+  kitchen2: {
+    title: "Location: Kitchen",
+    character: "Interviewee:Neighbor",
+    text: "You step quickly into the dusty and moldering kitchen. The haze of disturbed dust and the stench of mold catches in your throat. Looking around the ceiling, you can see slimy streaks of some dark substance creeping down the walls. Next to you, the door to the fridge strains as the same substance bubbles through the crack. Stepping past the hanging doors of barren cabinets, you reach the oozing sink, filled with cracked pots and plates, and see the familiar pile of papers and a stained knife lying on the streaked counters.",
+    choices: [
+      {
+        text: "Go to basement",
+        nextScene: "basement3"
+      },
+      {
+        text: "Return to hallway",
+        action: murderYesNo
+      },
+      {
+        text: "Investigate the papers",
+        nextScene: "kitchenPapers2"
+      },
+      {
+        text: "Investigate the knife",
+        nextScene: "knife"
+      }
+    ]
+  },
+
+  dining1{
+    
+  }
 
   hallway: {
     title: "The Hallway",
@@ -202,6 +244,11 @@ function completeMission(mission){
   missions.splice(missions.indexOf(mission), 0 );
   missionList.textContent = missions.join(", ");
 }
+// --------------------------------------------------
+// OTHER VARIABLES
+// --------------------------------------------------
+
+let didKill = no
 
 // --------------------------------------------------
 // CONDITIONAL 
@@ -241,41 +288,10 @@ function unlockCabinet() {
   }
 }
 
-function kitchenUpdate(){
-  if (sanity >= 40){
-    text: "well what I remember...",
-    choices: [
-      {
-        text: "Open door 1",
-        nextScene: "basement"
-      },
-      {
-        text: "Return to hallway",
-        nextScene: "hallway"
-      },
-      {
-        text: "Investigate the papers",
-      },
-      {
-        text: "Investigate the knife"
-        action: pickUpItem("knife")
-        messageDisplay.textContent = 
-      }
-    ]
+function murderYesNo(){
+  if (missions.includes("Kill intruder") && inventory.includes("stained knife") ){
+    nextScene = "murderHallway"
   } else {
-    text: "well what I remember...",
-    choices: [
-      {
-        text: "Open door 1",
-        nextScene: "backyard"
-      },
-      {
-        text: "Return to hallway",
-        nextScene: "hallway"
-      },
-      {
-        text: "Investigate the papers",
-      }
-    ]
+    nextScene = "hallway2"
   }
 }

@@ -114,7 +114,7 @@ const scenes = {
 
    hallway2: {
     title: "The Hallway",
-    text: "Stepping into the dimly-lit hallway, the first breath of mildew and rust in the air makes you choke for a moment. The polished wooden paneling on the walls has dulled and cracked, and the once-plush carpet has almost liquidfied under the stress of time and damp conditions.  The hallway is long, and lined with doors, but even in the dim light you can clearly see that the hinges and knobs of many of the doors have become caked with rust. You walk to the closest door and turn the handle, and it simply breaks off in your hand. Looking around, you can see only four doors that look like they could still be opened. Crumpled at the end of hallway is a small body, lying atop a dark stain. Stopping next to it, you look down into sightless, filmy eyes. The ragged hole has ceased weeping, and the edges have curled slightly in the damp air.",
+    text: "Stepping into the dimly-lit hallway, the first breath of mildew and rust in the air makes you choke for a moment. The polished wooden paneling on the walls has dulled and cracked, and the once-plush carpet has almost liquidfied under the stress of time and damp conditions. The hallway is long, and lined with doors, but even in the dim light you can clearly see that the hinges and knobs of many of the doors have become caked with rust. As you look around, your eyes catch on a small body, crumpled atop a dark stain. Stopping next to it, you look down into sightless, filmy eyes. The ragged hole across its back has ceased weeping, and its edges curl in the damp air. ",
     choices: [
       {
       text: "Open door 1",

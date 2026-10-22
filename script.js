@@ -17,18 +17,17 @@ const scenes = {
   // See "backyard" for the first example
   beginning: {
     title: "The Beginning",
-    character: "Interviewee:Grandma",
     text: "You awaken in the dusty, decaying hallway of what was clearly a once-expensive home. As you open your eyes and look up into the moldering ceiling, you are instantly filled with a familiar frustration, annoyance, and regret. 'Fuuuuck, not again.' You roll to your feet and glare around you at the peeling walls of the room you . . . recognize? You blink twice as a wave of-              .                ..                     ...                -Blinking rapidly, you look around at the decaying hallway of a once-expensive home, clearly left long to ruin. How did you get here? Where is here? What is this place? Who brought you here? Why? The only thing you know, with a chilling certainty, is that you are trapped, and you need to find a way to escape.",
     // you can choose how many choices to include
     // each choice can have text, an action, and/or nextScene
     choices: [
       {
         text: "Open door 1",
-         nextScene: "kitchen"
+         nextScene: "kitchen1"
       },
       {
         text: "Open door 2",
-        nextScene: "dining room"
+        nextScene: "dining room1"
       },
       {
           text: "Open door 3",
@@ -43,16 +42,15 @@ const scenes = {
 
   kitchen1: {
     title: "Location: Kitchen",
-    character: "Interviewee:Neighbor",
     text: "The kitchen is as ancient as the hallway, but despite its age, it seems free of mold or rot. Opening cabinets and drawers, it's clear that the thick sheets of dust coating every have never been disturbed before now. It's oddly tidy. Every pot, dish, and utensil has been carefully packed away and organzied, and the counters are completely bare except for a small pile of papers next to the empty sink. The fridge is on, and lights up when you open the door, but only the faintest puff of cooler air blows across your skin. Even on close inspection, it seems completely free of mold, stains, or husks of forgotten food. Across from the hallway is another wooden door, left ajar, with a staircase leading downward visible behind it.",
     choices: [
       {
         text: "Go through door",
-        nextScene: "basement"
+        nextScene: "basement1"
       },
       {
         text: "Return to hallway",
-        nextScene: "hallway"
+        nextScene: "hallway1"
       },
       {
         text: "Investigate the papers",
@@ -63,7 +61,6 @@ const scenes = {
 
   kitchen2: {
     title: "Location: Kitchen",
-    character: "Interviewee:Neighbor",
     text: "You step quickly into the dusty and moldering kitchen. The haze of disturbed dust and the stench of mold catches in your throat. Looking around the ceiling, you can see slimy streaks of some dark substance creeping down the walls. Next to you, the door to the fridge strains as the same substance bubbles through the crack. Stepping past the hanging doors of barren cabinets, you reach the oozing sink, filled with cracked pots and plates, and see the familiar pile of papers and a stained knife lying on the streaked counters.",
     choices: [
       {
@@ -114,7 +111,7 @@ const scenes = {
 
    hallway2: {
     title: "The Hallway",
-    text: "Stepping into the dimly-lit hallway, the first breath of mildew and decay in the air makes you choke for a moment. The polished wooden paneling on the walls has dulled and cracked, and the once-plush carpet has almost liquidfied under the stress of time and damp conditions. The hallway is long, and lined with doors, but even in the dim light you can clearly see that the hinges and knobs of many of the doors have become caked with rust. As you look around, your eyes catch on a small body, crumpled atop a dark stain. Stopping next to it, you look down into sightless, filmy eyes. The ragged hole across the back has ceased weeping, and its edges curl in the damp air. The liquid falling from the hanging mouth has congealed and darkened, until it no longer pools into the decayed mesh of the carpet, but slowly piles in gelatinous chunks. A thin web of mycelium stretches between the bloated appendages, across the pallid limbs, and up the petrified face, coating them in a pale fuzz. ",
+    text: "Stepping into the dimly-lit hallway, the first breath of mildew and decay in the air makes you choke for a moment. The polished wooden paneling on the walls has dulled and cracked, and the once-plush carpet has almost liquidfied under the stress of time and damp conditions. The hallway is long, and lined with doors, but even in the dim light you can clearly see that the hinges and knobs of many of the doors have become caked with rust. As you look around, your eyes catch on a small body, crumpled atop a dark stain. Stopping next to it, you look down into sightless, filmy eyes. The ragged hole across the back has ceased weeping, and its edges curl in the damp air. The liquid falling from the hanging mouth has congealed and darkened, until it no longer pools into the decayed mesh of the carpet, but slowly piles in gelatinous chunks. A thin web of mycelium stretches between the bloated appendages, across the pallid limbs, and up the petrified face, coating them in a pale fuzz.",
     choices: [
       {
       text: "Open door 1",
@@ -135,26 +132,6 @@ const scenes = {
     ]
   },
 
-   lockedDoor: {
-    title: "The Locked Door",
-    text: "The door handle doesn't move.",
-    choices: [
-      {
-        text: "Try to open it",
-        action: unlockDoor
-      },
-      {
-        text: "Go back",
-        nextScene: "backyard"
-      }
-    ]
-  },
-
-   solution: {
-    title: "The solution",
-    text: "You solved the mystery!",
-    
-  }
 };
 
 // --------------------------------------------------

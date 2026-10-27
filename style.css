@@ -8,4 +8,11 @@ span{
 a{
     text-decoration: underline wavy;
     color:mediumblue;
+    border: 3px ridge mediumblue; 
+    padding: 9px;
+
+}
+.heading{
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

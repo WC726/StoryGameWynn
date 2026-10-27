@@ -1,5 +1,5 @@
 img{
-    border:3px medium purple 2px 2px;
+    border: 6px outset blueviolet
 }
 span{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -7,5 +7,5 @@ span{
 }
 a{
     text-decoration: underline wavy;
-    color:midnightblue;
+    color:mediumblue;
 }

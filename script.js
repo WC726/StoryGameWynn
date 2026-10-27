@@ -82,6 +82,11 @@ const scenes = {
     ]
   },
 
+  kitchenPapers1: {
+    title: "",
+    text: "Examining the papers, you quickly realize that the scribbles covering them are completely unintelligible. The letters are so jagged and distorted that they are practically unrecognizable, and each sentences squirms its way around the page, crossing over previous sentences and rendering them unreadable."
+  },
+
   dining1: {
     
   },

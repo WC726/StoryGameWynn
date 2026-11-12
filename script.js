@@ -126,7 +126,7 @@ const scenes = {
 
   diningTable: {
     title: "",
-    text: "You walk up to the small table. Looking it over, you can see that even under the layer of dust this table is completely bare. Brushing away some of the dust, a few odd dark smears scattered on the surface of the wood become visible. Most likely stains left over from whoever the old owners were. Looking over the nearest chair, you lightly kick one leg. With the faintest crackle, the leg slides free and falls sideways. The whole chair follows, tipping smoothly over and crashing into the ground. As soon as it lands, it splits apart into, you quickly realize, the individual pieces of wood that are screwed together to form the chair. Picking up a leg, you inspect the top and see a streak of rust falling out of a hole in the top. The screws must have rusted away as the chair sat here, unmoving for who knows how many decades. Turning the leg over and lightly bending it in your hand, the wood feels strong and supple, without a trace of rot or woodworms, despite the damp air. Looking over the other pieces on the floor, they too look completely unblemished. Weighing the leg in your hands, you swing it a few times, experimentally.",
+    text: "You walk up to the small table. Looking over the nearest chair, you lightly kick one leg. With the faintest crackle, the leg slides free and falls sideways. The whole chair follows, tipping smoothly over and crashing into the ground. As soon as it lands, it splits apart into, you quickly realize, the individual pieces of wood that are screwed together to form the chair. Picking up a leg, you inspect the top and see a streak of rust falling out of a hole in the top. The screws must have rusted away as the chair sat here, unmoving for who knows how many decades. Turning the leg over and lightly bending it in your hand, the wood feels strong and supple, without a trace of rot or woodworms, despite the damp air. Looking over the other pieces on the floor, they too look completely unblemished. Weighing the leg in your hands, you swing it a few times, experimentally.",
     choices: [
       {
         text: "Take the chair leg",
@@ -135,6 +135,17 @@ const scenes = {
       {
         text: "Return to dining room",
         nextScene: "dining1"
+      }
+    ]
+  },
+
+  diningBookshelves: {
+    title: "",
+    text: "You walk up to the cluttered bookshelves. Looking closer, you can make out several figurines and one small ball ",
+    choices: [
+      {
+        text: "Return to dining room",
+        nextScene: "dining1",
       }
     ]
   },

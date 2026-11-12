@@ -84,7 +84,13 @@ const scenes = {
 
   kitchenPapers1: {
     title: "",
-    text: "Examining the papers, you quickly realize that the scribbles covering them are completely unintelligible. The letters are so jagged and distorted that they are practically unrecognizable, and each sentences squirms its way around the page, crossing over previous sentences and rendering them unreadable."
+    text: "Examining the papers, you quickly realize that the scribbles covering them are completely unintelligible. The letters are so jagged and distorted that they are practically unrecognizable, and each sentences squirms its way around the page, crossing over previous sentences and rendering them unreadable.",
+    choices: [
+      {
+        text: "Return to kitchen",
+        nextScene: "kitchen1"
+      },
+    ]
   },
 
   dining1: {
@@ -172,7 +178,6 @@ function updateScene(sceneName) {
   // the appropriate text from the scene object
   sceneTitle.textContent = scene.title;
   sceneText.textContent = scene.text;
-  characterName.textContent = scene.character;
 
   // Clear the old buttons before creating new ones
   choicesContainer.innerHTML = "";
@@ -281,6 +286,7 @@ function unlockLibrary() {
   } else {
     messageDisplay.textContent = "The old wooden door appears to be locked. The lock is large and appears to be made of iron.";
     addMission("Find library key")
+    currentScene= "hallway1"
   }
 }
 

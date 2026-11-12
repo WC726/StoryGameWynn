@@ -103,11 +103,11 @@ const scenes = {
     choices: [
       {
       text: "Open door 1",
-         nextScene: "kitchen"
+         nextScene: "kitchen1"
       },
       {
         text: "Open door 2",
-        nextScene: "dining room"
+        nextScene: "dining1"
       },
       {
           text: "Open door 3",
@@ -115,7 +115,7 @@ const scenes = {
       },
       {
         text: "Open door 4",
-        nextScene: "bedroom"
+        nextScene: "bedroom1"
       }
     ]
   },
@@ -195,6 +195,7 @@ function updateScene(sceneName) {
 
       if (choice.nextScene) {
         updateScene(choice.nextScene);
+        messageDisplay.textContent = ""
       }
     });
 
@@ -258,7 +259,7 @@ let missions = []
 const missionList = document.querySelector("#mission-display");
 
 function addMission(mission) {
-  mission.push(mission);
+  missions.push(mission);
   missionList.textContent = missions.join(", ");
 }
 
@@ -284,9 +285,13 @@ function unlockLibrary() {
     updateScene("library");
     completeMission("Find library key")
   } else {
-    messageDisplay.textContent = "The old wooden door appears to be locked. The lock is large and appears to be made of iron.";
-    addMission("Find library key")
-    currentScene= "hallway1"
+    messageDisplay.textContent = "The old wooden door seems to be locked. The lock is large and appears to be made of iron.";
+    if(missions.includes("Find library key")) {
+      currentScene= "hallway1"
+    } else{
+      addMission("Find library key")
+      currentScene= "hallway1"
+    }
   }
 }
 
@@ -295,8 +300,13 @@ function unlockStudy() {
     updateScene("study");
     completeMission("Find study key")
   } else {
-    messageDisplay.textContent = "This door appears to be locked. The lock is small and appears to be made of brass.";
-    addMission("Find study key")
+    messageDisplay.textContent = "This door is locked. The lock is small and appears to be made of brass.";
+    if(missions.includes("Find study key")) {
+      currentScene= "bedroom1"
+    } else{
+      addMission("Find study key")
+      currentScene= "bedroom1"
+    }
   }
 }
 
@@ -307,7 +317,12 @@ function unlockCabinet() {
     completeMission("Find cabinet key")
   } else {
     messageDisplay.textContent = "The cabinet is locked shut. The lock is small and appears to be made of a shiny metal.";
-    addMission("Find cabinet key")
+    if(missions.includes("Find cabinet key")) {
+      currentScene= "dining2"
+    } else{
+      addMission("Find cabinet key")
+      currentScene= "dining2"
+    }
   }
 }
 

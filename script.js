@@ -27,7 +27,7 @@ const scenes = {
       },
       {
         text: "Open door 2",
-        nextScene: "dining room1"
+        nextScene: "dining1"
       },
       {
           text: "Open door 3",
@@ -42,7 +42,7 @@ const scenes = {
 
   kitchen1: {
     title: "Location: Kitchen",
-    text: "The kitchen is as ancient as the hallway, but despite its age, it seems free of mold or rot. Opening cabinets and drawers, it's clear that the thick sheets of dust coating every have never been disturbed before now. It's oddly tidy. Every pot, dish, and utensil has been carefully packed away and organzied, and the counters are completely bare except for a small pile of papers next to the empty sink. The fridge is on, and lights up when you open the door, but only the faintest puff of cooler air blows across your skin. Even on close inspection, it seems completely free of mold, stains, or husks of forgotten food. Across from the hallway is another wooden door, left ajar, with a staircase leading downward visible behind it.",
+    text: "The kitchen is as ancient as the hallway, but despite its age, it seems free of mold or rot. Opening cabinets and drawers, it's clear that the thick sheets of dust coating everything have never been disturbed before now. It's oddly tidy. Every pot, dish, and utensil has been carefully packed away and organzied, and the counters are completely bare except for a small pile of papers next to the empty sink. The fridge is on, and lights up when you open the door, but only the faintest puff of cooler air blows across your skin. Even on close inspection, it seems completely free of mold, stains, or husks of forgotten food. Across from the hallway is another wooden door, left ajar, with a staircase leading downward visible behind it.",
     choices: [
       {
         text: "Go through door",
@@ -83,12 +83,76 @@ const scenes = {
   },
 
   kitchenPapers1: {
+<<<<<<< HEAD
     title: "The Mysterious Papers",
     text: "Examining the papers, you quickly realize that the scribbles covering them are completely unintelligible. The letters are so jagged and distorted that they are practically unrecognizable, and each sentences squirms its way around the page, crossing over previous sentences and rendering them unreadable."
+=======
+    title: "",
+    text: "Examining the papers, you quickly realize that the scribbles covering them are completely unintelligible. The letters are so jagged and distorted that they are practically unrecognizable, and each sentences squirms its way around the page, crossing over previous sentences and rendering them unreadable.",
+    choices: [
+      {
+        text: "Return to kitchen",
+        nextScene: "kitchen1"
+      },
+    ]
+>>>>>>> 1e0876ca9e69835d83f655edc7447545f2612645
   },
 
   dining1: {
-    
+    title: "Dining Room",
+    text: "Stepping through the nearest doorway, you walk into a small dining room that may have once been homely and comfortable. Three simple wooden chairs encircle a square table. Across the far wall are a couple of bookcases, piled with small indistinct shapes, maybe tchotchkeys or souveniers? To your left, a row of stiff curtains hang over one wall, their tips just brushing a row of small cabinets. Every single object in the room is caked with so much dust that it is impossible to make out any detail. Even the walls have been coated in a layer of dust so thick that it is impossible to see their true color.",
+    choices: [
+      {
+        text: "Investigate the chairs",
+        nextScene: "diningTable"
+      },
+      {
+        text: "Investigate the bookshelves",
+        nextScene: "diningBookshelves"
+      },
+      {
+        text: "Investigate the walls",
+        nextScene: "diningWalls1"
+      },
+      {
+        text: "Investigate the cabinets",
+        nextScene: "diningCabinet"
+      },
+      {
+        text: "Investigate the curtains",
+        nextScene: "diningCurtains"
+      },
+      {
+        text: "Return to hallway",
+        nextScene: "hallway1"
+      }
+    ]
+  },
+
+  diningTable: {
+    title: "",
+    text: "You walk up to the small table. Looking over the nearest chair, you lightly kick one leg. With the faintest crackle, the leg slides free and falls sideways. The whole chair follows, tipping smoothly over and crashing into the ground. As soon as it lands, it splits apart into, you quickly realize, the individual pieces of wood that are screwed together to form the chair. Picking up a leg, you inspect the top and see a streak of rust falling out of a hole in the top. The screws must have rusted away as the chair sat here, unmoving for who knows how many decades. Turning the leg over and lightly bending it in your hand, the wood feels strong and supple, without a trace of rot or woodworms, despite the damp air. Looking over the other pieces on the floor, they too look completely unblemished. Weighing the leg in your hands, you swing it a few times, experimentally.",
+    choices: [
+      {
+        text: "Take the chair leg",
+        action: pickUpItem("Chair leg")
+      },
+      {
+        text: "Return to dining room",
+        nextScene: "dining1"
+      }
+    ]
+  },
+
+  diningBookshelves: {
+    title: "",
+    text: "You walk up to the cluttered bookshelves. Looking closer, you can make out several figurines and one small ball ",
+    choices: [
+      {
+        text: "Return to dining room",
+        nextScene: "dining1",
+      }
+    ]
   },
 
   hallway1: {
@@ -97,11 +161,11 @@ const scenes = {
     choices: [
       {
       text: "Open door 1",
-         nextScene: "kitchen"
+         nextScene: "kitchen1"
       },
       {
         text: "Open door 2",
-        nextScene: "dining room"
+        nextScene: "dining1"
       },
       {
           text: "Open door 3",
@@ -109,7 +173,7 @@ const scenes = {
       },
       {
         text: "Open door 4",
-        nextScene: "bedroom"
+        nextScene: "bedroom1"
       }
     ]
   },
@@ -172,7 +236,6 @@ function updateScene(sceneName) {
   // the appropriate text from the scene object
   sceneTitle.textContent = scene.title;
   sceneText.textContent = scene.text;
-  characterName.textContent = scene.character;
 
   // Clear the old buttons before creating new ones
   choicesContainer.innerHTML = "";
@@ -190,6 +253,7 @@ function updateScene(sceneName) {
 
       if (choice.nextScene) {
         updateScene(choice.nextScene);
+        messageDisplay.textContent = ""
       }
     });
 
@@ -253,7 +317,7 @@ let missions = []
 const missionList = document.querySelector("#mission-display");
 
 function addMission(mission) {
-  mission.push(mission);
+  missions.push(mission);
   missionList.textContent = missions.join(", ");
 }
 
@@ -279,8 +343,13 @@ function unlockLibrary() {
     updateScene("library");
     completeMission("Find library key")
   } else {
-    messageDisplay.textContent = "The old wooden door appears to be locked. The lock is large and appears to be made of iron.";
-    addMission("Find library key")
+    messageDisplay.textContent = "The old wooden door seems to be locked. The lock is large and appears to be made of iron.";
+    if(missions.includes("Find library key")) {
+      currentScene= "hallway1"
+    } else{
+      addMission("Find library key")
+      currentScene= "hallway1"
+    }
   }
 }
 
@@ -289,8 +358,13 @@ function unlockStudy() {
     updateScene("study");
     completeMission("Find study key")
   } else {
-    messageDisplay.textContent = "This door appears to be locked. The lock is small and appears to be made of brass.";
-    addMission("Find study key")
+    messageDisplay.textContent = "This door is locked. The lock is small and appears to be made of brass.";
+    if(missions.includes("Find study key")) {
+      currentScene= "bedroom1"
+    } else{
+      addMission("Find study key")
+      currentScene= "bedroom1"
+    }
   }
 }
 
@@ -301,7 +375,12 @@ function unlockCabinet() {
     completeMission("Find cabinet key")
   } else {
     messageDisplay.textContent = "The cabinet is locked shut. The lock is small and appears to be made of a shiny metal.";
-    addMission("Find cabinet key")
+    if(missions.includes("Find cabinet key")) {
+      currentScene= "dining2"
+    } else{
+      addMission("Find cabinet key")
+      currentScene= "dining2"
+    }
   }
 }
 

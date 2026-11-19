@@ -17,7 +17,7 @@ const scenes = {
   // See "backyard" for the first example
   beginning: {
     title: "The Beginning",
-    text: "You awaken in the dusty, decaying hallway of what was clearly a once-expensive home. As you open your eyes and look up into the moldering ceiling, you are instantly filled with a familiar frustration, annoyance, and regret. 'Fuuuuck, not again.' You roll to your feet and glare around you at the peeling walls of the room you . . . recognize? You blink twice as a wave of-              .                ..                     . ..                . .             .                 .. .                 ..            ...       ..                     . ..                . .             .                 .. -Blinking rapidly, you look around at the decaying hallway of a once-expensive home, clearly left long to ruin. How did you get here? Where is here? What is this place? Who brought you here? Why? The only thing you know, with a chilling certainty, is that you are trapped, and you need to find a way to escape.",
+    text: "You awaken in the dusty, decaying hallway of what was clearly a once-expensive home. As you open your eyes and look up into the moldering ceiling, you are instantly filled with a familiar frustration, annoyance, and regret. 'Fuuuuck, not again.' You roll to your feet and glare around you at the peeling walls of the room you...recognize? You blink twice as a wave of-              .                ..                     . ..                . .             .                 .. .                 ..            ...       ..                     . ..                . .             .                 .. -Blinking rapidly, you look around at the decaying hallway of a once-expensive home, clearly left long to ruin. How did you get here? Where is here? What is this place? Who brought you here? Why? The only thing you know, with a chilling certainty, is that you are trapped, and you need to find a way to escape.",
     // you can choose how many choices to include
     // each choice can have text, an action, and/or nextScene
     choices: [
@@ -83,7 +83,7 @@ const scenes = {
   },
 
   kitchenPapers1: {
-    title: "",
+    title: "The Mysterious Papers",
     text: "Examining the papers, you quickly realize that the scribbles covering them are completely unintelligible. The letters are so jagged and distorted that they are practically unrecognizable, and each sentences squirms its way around the page, crossing over previous sentences and rendering them unreadable."
   },
 
@@ -120,7 +120,7 @@ const scenes = {
     choices: [
       {
       text: "Open door 1",
-         nextScene: "kitchen"
+         nextScene: "kitchen3"
       },
       {
         text: "Open door 2",

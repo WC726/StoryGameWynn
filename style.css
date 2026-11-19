@@ -1,9 +1,5 @@
 img{
-    border: 6px outset blueviolet
-}
-span{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color:darkgreen;
+    border: 6px outset blueviolet;
 }
 a{
     text-decoration: underline wavy;
@@ -15,4 +11,30 @@ a{
 .heading{
     text-align: center;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 10px;
+    background-color: black;
+    border: 4px dimgrey solid;
+}
+.card{
+    padding: 10px;
+    text-align: center;
+    background-color: antiquewhite;
+    border: 3px black dashed;
+    font-family:'Courier New', Courier, monospace;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 550px;
+    
+}
+#sanity{
+    font-family: cursive;
+    border: 3px palevioletred ridge;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: fit-content;
 }
